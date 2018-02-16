@@ -7,21 +7,14 @@ Web Server Gateway Interface (WSGI) has been adopted as a standard for Python we
 WSGI is a specification for a universal interface between the web server and the web applications.
 '''
 
-from flask import Flask, redirect, url_for, request, render_template, flash, make_response
+from flask import Flask
 app = Flask(__name__)
-
-#from sql_function import *
-
-app.debug = False
-app.secret_key = 'any random string'
 
 #The route() decorator in Flask is used to bind URL to a function
 @app.route('/')
-def welcome():
+def index():
     return "home page"
 
-
-#app.add_url_rule('/data', 'i_check', func_fetchData)
 
 
 
