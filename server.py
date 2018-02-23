@@ -1,3 +1,9 @@
+# The web service uses CRT mySQL database
+
+#######################################################################################
+# Imports
+#######################################################################################
+
 import tornado.httpserver
 import tornado.ioloop
 from tornadows import soaphandler
@@ -7,7 +13,9 @@ from tornadows.soaphandler import webservice
 from sql_db import cl_mySQL_DB
 
 
-
+#######################################################################################
+# Service to register user and return key
+#######################################################################################
 class RegisterUser(soaphandler.SoapHandler):
     
         @webservice(_params=[str],_returns=str)
@@ -16,7 +24,9 @@ class RegisterUser(soaphandler.SoapHandler):
                 userKey = xObject.createUser(userName)
                 return 'Hello %s , save your key : %s' %(userName , userKey)
 
-
+#######################################################################################
+# Service to return date and values of given ticker
+#######################################################################################
 class FetchTickers(soaphandler.SoapHandler):
     
         @webservice(_params=[str,str,str,str],_returns=str)
@@ -33,7 +43,7 @@ class FetchTickers(soaphandler.SoapHandler):
                 return dict_table  
 
             
-
+# The server runs on localhost, and creates wsdl for client to use.
 if __name__ == '__main__':
        service = [('RegisterUser',RegisterUser),('FetchTickers',FetchTickers)]
        ws = webservices.WebService(service)
