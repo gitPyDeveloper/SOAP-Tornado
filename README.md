@@ -6,7 +6,9 @@ Refer python binary files for windows at,
 https://www.lfd.uci.edu/~gohlke/pythonlibs/
 
 
-Prerequisite : 
+Install following libraries before proceed,
+
+
 pip install tornado
 
 pip install tornado-4.5.3-cp27-cp27m-win_amd64.whl
